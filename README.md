@@ -4,7 +4,7 @@ NPM : 2206083123
 
 Kelas : PBP B
 
-Link Adaptable: https://hanagrosir.adaptable.app
+Link Adaptable: https://hanagrosir.adaptable.app/main/
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
