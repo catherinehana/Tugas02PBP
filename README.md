@@ -36,55 +36,57 @@ Link Adaptable: https://hanagrosir.adaptable.app
 
 Virtual environment adalah sebuah alat yang digunakan dalam pengembangan proyek untuk mengisolasi dependensi dan paket-paket dalam proyek tertentu. Kita menggunakan virtual environment karena virtual environment memiliki peran-peran penting dalam mengembangkan perangkat lunak. Peran-peran penting tersebut adalah
 
-- Keamanan
+- Keamanan,
   Dengan virtual environment, kita dapat mengontrol sumber dependensi di proyek dan mengisolasi proyek kita dari sistem operasi secara keseluruhan. Dengan mengontrol sumber dependensi kita bisa menghindari penggunaan dependesi yang tidak aman. Dengan mengisolasi proyek, kita bisa menghindari terjadinya konflik antara proyek kita dan sistem operasi yang ada.
 
-- Isolasi dependensi
+- Isolasi dependensi,
   Virtual environtment memungkinkan kita untuk mengisolasi dependensi yang berbeda untuk proyek-proyek yang berbeda saat kita mengembangkan perangkat lunak. Bisa ada proyek-proyek tertentu yang memerlukan versi yang berbeda dari paket atau dependensi lainnya sehingga isolasi dependensi ini dapat membuat satu proyek terisolasi dengan semua yang diperlukan. Ini dapat membuat pengembangan perangkat lunak berjalan dengan lancar. Tanpa isolasi, bisa saja ada proyek yang tidak bisa berjalan di suatu versi dependensi yang digunakan.
 
-- Pengelolaan
+- Pengelolaan,
   Dengan virtual environment, kita bisa menjaga proyek kita tetap teratur. Kita bisa mengelola dependensi secara terpisah dengan dependesi sistem operasi kita. Hal ini mempermudah kita dalam memperbarui, merawat, dan menghapus dependensi proyek lain tanpa memengaruhi sistem operasi kita dan dependesi lainnya.
 
-- Kemudahan dalam mengakses
+- Kemudahan dalam mengakses,
   Dengan virtual environment, kita dapat dengan mudah membagikan proyek dengan orang lain atau memindahkannya ke sistem lain tanpa perlu khawatir tentang konflik atau persyaratan lainnya. Kita bisa membuat dan membagikan file konfigurasi yang menjelaskan dependensi proyek kita.
 
 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
    MVC, MVT, dan MVVM adalah pola arsitektur perangkat lunak yang digunakan untuk mengatur kode dalam aplikasi.
 
-- MVC (Model-View-Controller)
+- MVC (Model-View-Controller),
   MVC adalah salah satu pola arsitektur dalam industri perangkat lunak yang paling dikenal. Pola ini memfasilitasi pemisahan perhatian dengan membagi aplikasi menjadi:
-  a. Model
-  Bagian ini mewakili data dan logika bisnis dalam aplikasi. Ini bertanggung jawab untuk mengelola, memproses, dan menyimpan data. Ini jga menerapkan aturan bisnis yang diperlukan
-  b. View
-  Bagian ini mewakili antarmuka pengguna(UI) dalam aplikasi dan lapisan presentasi, artinya bagian ini bertanggung jawab untuk menampilkan data kepada pengguna dan menanggapi input dari pengguna.
-  c. Controller
-  Bagian ini bertindak sebagai perantara antara tampilan dan model. Bagian ini menangani interaksi pengguna dan meneruskan permintaan di bagian view ke bagian model.
 
-- MVT (Model-View-Template)
+  - Model,
+    Bagian ini mewakili data dan logika bisnis dalam aplikasi. Ini bertanggung jawab untuk mengelola, memproses, dan menyimpan data. Ini jga menerapkan aturan bisnis yang diperlukan
+  - View,
+    Bagian ini mewakili antarmuka pengguna(UI) dalam aplikasi dan lapisan presentasi, artinya bagian ini bertanggung jawab untuk menampilkan data kepada pengguna dan menanggapi input dari pengguna.
+  - Controller,
+    Bagian ini bertindak sebagai perantara antara tampilan dan model. Bagian ini menangani interaksi pengguna dan meneruskan permintaan di bagian view ke bagian model.
+
+- MVT (Model-View-Template),
   Ada tiga komponen utama dalam bagian ini, yaitu:
-  a. Model
-  Bagian ini mewakili data dan logika bisnis dalam aplikasi. Bagian ini mirip dengan komponen model dalam MVC
-  b. View
-  Bagian ini bertanggung jawab dalam menangani presentasi data kepada pengguna
-  c. Template
-  Bagian ini bertanggung jawab dalam mengatur penampilan data dalam HTML dari sistem hingga tata caranya. Bagian ini terpisah dari view.
 
-- MVVM(Model-View-ViewModel)
+  - Model,
+    Bagian ini mewakili data dan logika bisnis dalam aplikasi. Bagian ini mirip dengan komponen model dalam MVC
+  - View,
+    Bagian ini bertanggung jawab dalam menangani presentasi data kepada pengguna
+  - Template,
+    Bagian ini bertanggung jawab dalam mengatur penampilan data dalam HTML dari sistem hingga tata caranya. Bagian ini terpisah dari view.
+
+- MVVM(Model-View-ViewModel),
   Model ini memiliki tiga komponen utama, yaitu:
-  a. Model
-  Bagian ini mewakili data dan logika bisnis. Bagian ini masih sama dengan MVC dan MVT. Bagian ini bertanggung jawab dalam menyimpan dan mengambil data dan memprosesnya.
-  b. View
-  Bagian ini mewakili antarmuka pengguna, menampilkan data dari ViewModel dan menanggapi tindakan dari pengguna.
-  c. ViewModel
-  Bagian ini berfungsi sebagai jembatan antara model dan view. Bagian ini bertanggung jawab dalam mengelola logika tampilan dan menjalankan operasi untuk mengubah data sebelum ditampilkan di view.
+  - Model,
+    Bagian ini mewakili data dan logika bisnis. Bagian ini masih sama dengan MVC dan MVT. Bagian ini bertanggung jawab dalam menyimpan dan mengambil data dan memprosesnya.
+  - View,
+    Bagian ini mewakili antarmuka pengguna, menampilkan data dari ViewModel dan menanggapi tindakan dari pengguna.
+  - ViewModel,
+    Bagian ini berfungsi sebagai jembatan antara model dan view. Bagian ini bertanggung jawab dalam mengelola logika tampilan dan menjalankan operasi untuk mengubah data sebelum ditampilkan di view.
 
 Perbedaan:
 
-- MVC
+- MVC,
   Pada pola ini, ketiga komponen utama, yaitu model, view, dan controller memiliki tanggung jawab yang jelas dan terpisah. MVC biasa digunakan untuk pengembangan aplikasi dekstop dan web. Bagian model dan view juga tidak tahu satu sama lain secara langsung, mereka hanya berkomunikasi lewat controller. Controller juga mengontrol logika aplikasi
 
-- MVT
+- MVT,
   Pola ini biasanya digunakan dalam kerangka web, seperti Django di Python. Perbedaan utama terdapat dalam bagian template. Pola ini menggabungkan prinsip WVC dengan bagian template yang memisahkan tampilan dari logika sehingga tampilan dapat didefinisikan terpisah dalam file template. Ini khususnya digunakan dalam pengembangan web
 
-- MVVN
+- MVVN,
   Pola ini sering digunakan untuk mengembangkan aplikasi berbasis data. Pola ini mengenalkan ViewModel sebagai lapisan tambahan yang akan memisahkan tampilan dan logika dari bagian model. ViewModel mengelola tampilan secara terpusat sehingga bisa ada transformasi data sebelum ditampilkan di bagian view. Hasilnya, pengelolaan tampilan dalam menjadi lebih fleksibel. Hal inilah yang membuat pola ini sering digunakan di dalam aplikasi web modern dan berbasis mobile
