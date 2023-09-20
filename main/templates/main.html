@@ -1,3 +1,4 @@
+{% extends 'base.html' %} {% block content %}
 <h1 style="text-align: center">Hana Grosir</h1>
 
 <h2>Welcome!</h2>
@@ -14,7 +15,7 @@
     <style>
       /* CSS untuk mengubah warna latar belakang elemen dengan ID "container" */
       #container {
-        background-color: #ffb9ee; /* Anda dapat mengganti kode warna dengan yang Anda inginkan */
+        background-color: #ffb9ee;
       }
     </style>
   </head>
@@ -31,63 +32,36 @@
       <tr style="border: 2px solid black">
         <th>Nama produk</th>
         <th>Gambar</th>
+        <th>Harga Satuan</th>
         <th>Keterangan</th>
         <th>Berat</th>
         <th>Jumlah</th>
-        <th>Harga Satuan</th>
       </tr>
+      {% for product in products %}
       <tr>
-        <td>{{produk1}}</td>
-        <td>
-          <img
-            src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//116/MTA-79358597/koko_krunch_koko_krunch_nestle_cereal_300_gr_-_harga_satuan_full01_su7d5zq0.jpg"
-            width="120"
-          />
-        </td>
-        <td>{{keterangan1}}</td>
-        <td>{{berat1}}</td>
-        <td>{{jumlah1}}</td>
-        <td>{{harga1}}</td>
+        <td>{{product.name}}</td>
+        <td><img src="{{ product.picture }}" width="150" /></td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.weight}}</td>
+        <td>{{product.ammount}}</td>
       </tr>
-      <tr>
-        <td>{{produk2}}</td>
-        <td>
-          <img
-            src="https://cf.shopee.co.id/file/03b1c4f0641fb1b17d42df5add2e9ba7"
-            width="120"
-          />
-        </td>
-        <td>{{keterangan2}}</td>
-        <td>{{berat2}}</td>
-        <td>{{jumlah2}}</td>
-        <td>{{harga2}}</td>
-      </tr>
-      <tr>
-        <td>{{produk3}}</td>
-        <td>
-          <img
-            src="https://mausimpan.s3.ap-southeast-1.amazonaws.com/images/products/8adfd0945a3a6abf6469511260b570c5.jpg"
-            width="120"
-          />
-        </td>
-        <td>{{keterangan3}}</td>
-        <td>{{berat3}}</td>
-        <td>{{jumlah3}}</td>
-        <td>{{harga3}}</td>
-      </tr>
-      <tr>
-        <td>{{produk4}}</td>
-        <td>
-          <img
-            src="https://o-cdf.sirclocdn.com/unsafe/cdnapi.sooplai.com/media/products/248680/cb8fdf63-d07.png"
-            width="120"
-          />
-        </td>
-        <td>{{keterangan4}}</td>
-        <td>{{berat4}}</td>
-        <td>{{jumlah4}}</td>
-        <td>{{harga4}}</td>
-      </tr>
+      {% endfor %}
     </table>
+    <br />
+
+    <a href="{% url 'main:create_product' %}">
+      <button
+        style="
+          background-color: #f1895d;
+          border: 2px solid black;
+          cursor: pointer;
+          font-size: 16px;
+        "
+      >
+        Add New Product
+      </button>
+    </a>
   </body>
 </html>
+{% endblock content %}
