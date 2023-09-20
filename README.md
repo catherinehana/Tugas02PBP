@@ -12,47 +12,54 @@ Link Adaptable: https://hanagrosir.adaptable.app/main/
    Django adalah framework web yang biasanya digunakan untuk mengembangkan aplikasi web dengan bahasa pemrograman Python. Di sini, kita dapat menggunakan metode HTTP POST dan GET untuk mengirimkan data antara server web dengan browser klien. Ini adalah perbedaan dari form POST dan form Get:
 
    - Tujuan,
-     Form POST: Biasa digunakan untuk mengirimkan data yang akan disimpan dan diproses oleh server.
-     Form GET: Biasa digunakan untuk mengambil data dari server tanpa memengaruhi atau mengubah data di server
+
+     - Form POST: Biasa digunakan untuk mengirimkan data yang akan disimpan dan diproses oleh server.
+     - Form GET: Biasa digunakan untuk mengambil data dari server tanpa memengaruhi atau mengubah data di server
 
    - Kemananan,
-     Form POST: Data yang dikirim akan dikirim secara tersembunyi ke server. Ini membuat proses lebih aman digunakan untuk mengirim data sensitif, seperti informasi pribadi atau kata sandi. Data-data yang dikirim juga tidak terlihat di URL
-     Form GET: Data yang dikirim akan dikirim sebagai parameter URL. Ini dilakukan agar terlihat di URL. Berbeda dengan POST, GET tidak aman untuk mengirim data sensitif
+
+     - Form POST: Data yang dikirim akan dikirim secara tersembunyi ke server. Ini membuat proses lebih aman digunakan untuk mengirim data sensitif, seperti informasi pribadi atau kata sandi. Data-data yang dikirim juga tidak terlihat di URL
+     - Form GET: Data yang dikirim akan dikirim sebagai parameter URL. Ini dilakukan agar terlihat di URL. Berbeda dengan POST, GET tidak aman untuk mengirim data sensitif
 
    - Batasan panjang data,
-     Form POST: Tidak memiliki batasan panjang data yang bisa dikirim sehingga cocok untuk mengirimkan data dengan ukuran yang sangat besar
-     Form GET: Ada batasan pada panjang URL sehingga tidak disarankan untuk mengirimkan data dengan ukuran yang sangat besar
+
+     - Form POST: Tidak memiliki batasan panjang data yang bisa dikirim sehingga cocok untuk mengirimkan data dengan ukuran yang sangat besar
+     - Form GET: Ada batasan pada panjang URL sehingga tidak disarankan untuk mengirimkan data dengan ukuran yang sangat besar
 
    - Tampilan URL,
-     Form POST: Di sini, parameter data tidak terlihat di URL
-     Form GET: Di sini parameter data terlihat di URL
+
+     - Form POST: Di sini, parameter data tidak terlihat di URL
+     - Form GET: Di sini parameter data terlihat di URL
 
    - Bookmarking dan caching,
-     Form POST: Di sini, data yang dikirm tidak dapat di-bookmark dan tidak disimpan di dalam cache browser
-     FORM GET: DI sini data ang dikirim dapat di-bookmark dan disimpan di dalam cache browser
+     - Form POST: Di sini, data yang dikirm tidak dapat di-bookmark dan tidak disimpan di dalam cache browser
+     - FORM GET: DI sini data ang dikirim dapat di-bookmark dan disimpan di dalam cache browser
 
 2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
    JSON, XML, dan HTML adalah format yang digunakan dalam pengiriman data di web dan aplikasi. JSON adalah singkatan dari JavaScript Object Notation. XML adalah singkatan dari eXtensible Markup Language. HTML adalah singkatan dari HyperText Markup Language. Berikut perbedaan dari ketiga format tadi:
 
    - Tujuan,
-     JSON: Merupakan format data yang digunakan untuk melakukan proses pertukaran data antar aplikasi. JSON mudah dibaca oleh manusia dan diproses oleh komputer
-     XML: Merupakan format data yang digunakan untuk mengatur dan menyimpan data dalam struktur hirarkis. XML biasa digunakan untuk pertukaran data yang sangat terstruktur dan dapat digunakan di platform-platform
-     HTML: Merupakan bahasa markup yang digunakan untuk membuat tampilan konten dan struktur di web. HTML bisa untuk pertukaran data tapi tidak begitu lengkap
+
+     - JSON: Merupakan format data yang digunakan untuk melakukan proses pertukaran data antar aplikasi. JSON mudah dibaca oleh manusia dan diproses oleh komputer
+     - XML: Merupakan format data yang digunakan untuk mengatur dan menyimpan data dalam struktur hirarkis. XML biasa digunakan untuk pertukaran data yang sangat terstruktur dan dapat digunakan di platform-platform
+     - HTML: Merupakan bahasa markup yang digunakan untuk membuat tampilan konten dan struktur di web. HTML bisa untuk pertukaran data tapi tidak begitu lengkap
 
    - Syntax,
-     JSON: Syntax yang digunakan adalah pasangan nama-nilai(key-value pairs) dalam format teks
-     XML: Syntax yang digunakan adalah tag yang mendefinisikan elemen dan atribut untuk menyusun data
-     HTML: Syntax yang digunakan adalah tag, tetapi berbeda dengan XML, fungsi di HTML adalah untuk mengatur tampilan di konten halaman web
+
+     - JSON: Syntax yang digunakan adalah pasangan nama-nilai(key-value pairs) dalam format teks
+     - XML: Syntax yang digunakan adalah tag yang mendefinisikan elemen dan atribut untuk menyusun data
+     - HTML: Syntax yang digunakan adalah tag, tetapi berbeda dengan XML, fungsi di HTML adalah untuk mengatur tampilan di konten halaman web
 
    - Ekosistem,
-     JSON: JSON sudah menjadi format standar untuk RESTful API dan banyak bahasa pemrograman sudah memiliki dukungan bawaan untuk memproses JSON
-     XML: XML sudah memiliki dukungan luas dan banyak alat untuk memproses dan mengurai datanya
-     HTML: HTML sudah didukung oleh semua web
+
+     - JSON: JSON sudah menjadi format standar untuk RESTful API dan banyak bahasa pemrograman sudah memiliki dukungan bawaan untuk memproses JSON
+     - XML: XML sudah memiliki dukungan luas dan banyak alat untuk memproses dan mengurai datanya
+     - HTML: HTML sudah didukung oleh semua web
 
    - Kemudahan untuk dibaca,
-     JSON: Dengan syntax yang sederhana, JSON mudah dibaca oleh manusia
-     XML: Struktur dari XML kuat tetapi sulit dibaca oleh manusia karena syntaxnya cenderung lebih kompleks
-     HTML: HTML sudah dirancang untuk mudah dibaca oleh manusia dan untuk membuat tampilan web.
+     - JSON: Dengan syntax yang sederhana, JSON mudah dibaca oleh manusia
+     - XML: Struktur dari XML kuat tetapi sulit dibaca oleh manusia karena syntaxnya cenderung lebih kompleks
+     - HTML: HTML sudah dirancang untuk mudah dibaca oleh manusia dan untuk membuat tampilan web.
 
 3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
    JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena JSON memiliki banyak keunggulan yang membuatnya cocok untuk mengembangkan web saat ini. Berikut adalah keuntungan-keuntungan dari JSON:
