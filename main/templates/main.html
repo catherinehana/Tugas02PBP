@@ -3,10 +3,8 @@
 
 <h2>Welcome!</h2>
 <p>{{name}}</p>
-<!-- Ubahlah sesuai dengan nama kamu -->
 <h3>Class:</h3>
 <p>{{class}}</p>
-<!-- Ubahlah sesuai dengan kelas kamu -->
 
 <!DOCTYPE html>
 <html style="background-color: #add8e6">
@@ -35,6 +33,9 @@
         <th>Keterangan</th>
         <th>Berat</th>
         <th>Jumlah</th>
+        <th>Menambah Jumlah Produk</th>
+        <th>Mengurangi Jumlah Produk</th>
+        <th>Menghapus Produk</th>
       </tr>
       {% for product in products %}
       <tr>
@@ -44,7 +45,46 @@
         <td>{{product.description}}</td>
         <td>{{product.weight}}</td>
         <td>{{product.ammount}}</td>
-      </tr>
+        <td align="center">
+          <form method="post" action="{% url 'main:show_main' %}">
+            {% csrf_token %}
+            <input type="hidden" name="id_item" value="{{ product.id }}" />
+            <input type="hidden" name="action" value="increase" />
+            <button type="submit" style="
+            background-color: #46adf2;
+            border: 2px solid black;
+            cursor: pointer;
+            font-size: 14px;
+          ">Tambah</button>
+          </form>
+        </td>
+        <td align="center">
+          <form method="post" action="{% url 'main:show_main' %}">
+              {% csrf_token %}
+              <input type="hidden" name="id_item" value="{{ product.id }}" />
+              <input type="hidden" name="action" value="decrease" />
+              <button type="submit" style="
+              background-color: #46adf2;
+              border: 2px solid black;
+              cursor: pointer;
+              font-size: 14px;
+            ">Kurang</button>
+          </form>
+        </td>
+        <td align="center">
+          <form method="post" action="{% url 'main:show_main' %}">
+              {% csrf_token %}
+              <input type="hidden" name="id_item" value="{{ product.id }}" />
+              <input type="hidden" name="action" value="delete" />
+              <button type="submit" style="
+              background-color: #46adf2;
+              border: 2px solid black;
+              cursor: pointer;
+              font-size: 14px;
+            ">Hapus</button>
+          </form>
+          </tr>
+        </td>
       {% endfor %}
     </table>
     <br />

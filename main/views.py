@@ -16,10 +16,29 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 
+
 # Create your views here.
 @login_required(login_url='/login')
 def show_main(request):
     products = Item.objects.filter(user=request.user)
+    if request.method == 'POST':
+        id_item = request.POST.get('id_item')
+        action = request.POST.get('action')
+
+        if action == 'increase':
+            product = Item.objects.get(id=id_item)
+            product.ammount += 1
+            product.save()
+        elif action == 'decrease': 
+            product = Item.objects.get(id=id_item)
+            if product.ammount > 0:
+                product.ammount -= 1
+                product.save()
+        elif action == 'delete':
+            product = Item.objects.get(id=id_item)
+            product.delete()
+            return HttpResponseRedirect(reverse(('main:show_main')))
+        
     context = {
         'name': request.user.username,
         'class': 'PBP B',
@@ -89,22 +108,3 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
-
-
-# def mengurangi_ammount(request, id):
-#     product = Item.objects.get(id=product_id)
-#     if product.stock > 0:
-#         product.stock -= 1
-#         product.save()
-#     return HttpResponseRedirect(reverse('main:show_main'))
-
-# def menambah_ammount(request, id):
-#     product = Item.objects.get(id=product_id)
-#     product.stock += 1
-#     product.save()
-#     return HttpResponseRedirect(reverse('main:show_main'))
-
-# def delete_product(request):
-#     product = Item.objects.get(id=id)
-#     product.delete()
-#     return HttpResponseRedirect(reverse('main:show_main'))
