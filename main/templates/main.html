@@ -13,7 +13,6 @@
   <head>
     <title>Tabel Produk</title>
     <style>
-      /* CSS untuk mengubah warna latar belakang elemen dengan ID "container" */
       #container {
         background-color: #ffb9ee;
       }
@@ -60,6 +59,20 @@
         "
       >
         Add New Product
+      </button>
+    </a>
+
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <a href="{% url 'main:logout' %}">
+      <button
+        style="
+          background-color: #f1895d;
+          border: 2px solid black;
+          cursor: pointer;
+          font-size: 16px;
+        "
+      >
+        Logout
       </button>
     </a>
   </body>
