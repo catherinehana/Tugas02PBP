@@ -18,7 +18,7 @@ Link Adaptable: https://hanagrosir.adaptable.app/main/
 
    - Selector Kelas (Class Selector),
 
-     - Manfaat: Selector kelas memungkinkan kita untuk mengedit tampilan elemen-elemen yang memiliki atribut 'class' yang sama. DI sini, kita dapat mengaplikasikan gaya khusus pada kelompok atau kelas tertentu
+     - Manfaat: Selector kelas memungkinkan kita untuk mengedit tampilan elemen-elemen yang memiliki atribut 'class' yang sama. Di sini, kita dapat mengaplikasikan gaya khusus pada kelompok atau kelas tertentu
      - Waktu yang tepat: Kita dapat menggunakan selector class ketika kita ingin mengedit tampilan elemen-elemen yang memiliki karakteristik atau fungsi yang sama dengan halaman kita. Contohnya, kita ingin mengedit tampilan tombol.
 
    - Selector ID(ID Selector),
@@ -26,28 +26,28 @@ Link Adaptable: https://hanagrosir.adaptable.app/main/
      - Manfaat: Selector ID digunakan untuk mengedit tampilan elemen ang memiliki atribut id unik. Ini adalah cara yang sangat spesifik untuk mengedit tampilan dan mengidentifikasi elemen tertentu
      - Waktu yang tepat: Kita dapat menggunakan selector ID saat kita perlu mengedit tampilan elemen dengan atribut id yang unik di halaman kita, seperti header, container, dll
 
-   - Selector Universal ('\*' Selector),
+   - Selector Universal (`'\*'` Selector),
      - Manfaat: Selector universal memungkinkan kita untuk mengedit tampilan semua elemen dalam halaman. Ini jarang digunakan karena akan memengaruhi semua elemen dalam halaman web, yang mungkin tidak selalu diinginkan
      - Waktu yang tepat: Kita perlu menggunakan selector universal dengan hati- hati atau bahkan menghibdari penggunaan selector universal, kecuali kita benar-benar ingin menerapkan gaya ke semua elemen dalam halaman.
 
 2. Jelaskan HTML5 Tag yang kamu ketahui.
    HTML5 (Hypertext Markup Language versi 5) adalah versi terbaru dari standar HTML. HTML5 digunakan untuk membangun dan merancang halaman web. Ada banyak tag baru di HTML5 yang membantu pengembang web dalam membuat konten web yang lebih semantik dan kaya akan fitur. Berikut adalah beberapa tag HTMML5 yang saya ketahui:
 
-- <header>: Tag ini digunakan untk mendefinisikan bagian atas(header) dari halam atau bagian dari konten. Ini biasanya kita gunakan untuk menempatkan logo, judul halaman, dll
-- <nav>: Tag ini digunakan untuk mengelompokkan elemen-elemen yang berfungsi sebagai menu navigasi, seperti menu utama dan menu samping
-- <main>: Tag ini digunakan untuk mengelompokkan konten utama dari halaman web. Kita biasanya hanya menggunakan satu elemen <main> dalam satu halaman. Ini membantu aksesibilitas
-- <section>: Tag ini digunakan untuk mengelompokkan konten yang memilik makna atau topik serupa. Ini dapat membantu kita dalam memberikan struktur yang lebih baik pada halaman web
-- <article>: Tag ini digunakan untuk mengelompokkan konten yang merupakan bagian independen yang dapat berdiri sendiri. COntohnya, artikel dan komentar
-- <footer>: Tag ini digunakan untuk mendefinisikan bagian footer dari halaman atau bagian dari konten. Kita biasanya akan menempatkan informasi kontak dan hak cipta pada footer
-- <canvas>: Tag ini digunakan untuk membuat grafik, animasi, atau gambar yang dapat diolah dengan JavaScript
-- <aside>: Tag ini digunakan untuk mengelompokkan konten sampingan yang dapat berdisi sendiri, seperti sidebar dengan widget atau iklan
-- <video> dan <audio>: Tag ini digunakan untuk menanamkan dan mengendalikan file video dan audio di halaman web kita
-- <figure> dan <figcaption>: Tag ini digunakan bersama-sama untuk menambahkan gambar atau media lainnya berdengan dengan deskripsi. Ini membantu kita dalam merinci konten visual
-- <input type='date/time/color'>: Tag ini digunakan untuk memasukkan data tanggal, waktu, atau warna dalam formulir
-- <iframe>: Tag ini digunakan untuk menanamkan konten dari sumber eksternal, seperti video Youtube
-- <progress> dan <meter>: Tag ini digunakan untuk menampilkan informasi mengenai kemajuan, seperti status pengiriman file
-- <datalist>: Tag ini digunakan untuk membuat daftar opsi yang akan muncul saat user mulai mengetik di dalam input
-- <details> dan <summary>: Tag ini digunakan untuk membuat konten yang dapat dijatuhkan atau diperluas, contohnya daftar isian
+- `<header>`: Tag ini digunakan untk mendefinisikan bagian atas(header) dari halam atau bagian dari konten. Ini biasanya kita gunakan untuk menempatkan logo, judul halaman, dll
+- `<nav>`: Tag ini digunakan untuk mengelompokkan elemen-elemen yang berfungsi sebagai menu navigasi, seperti menu utama dan menu samping
+- `<main>`: Tag ini digunakan untuk mengelompokkan konten utama dari halaman web. Kita biasanya hanya menggunakan satu elemen `<main>` dalam satu halaman. Ini membantu aksesibilitas
+- `<section>`: Tag ini digunakan untuk mengelompokkan konten yang memilik makna atau topik serupa. Ini dapat membantu kita dalam memberikan struktur yang lebih baik pada halaman web
+- `<article>`: Tag ini digunakan untuk mengelompokkan konten yang merupakan bagian independen yang dapat berdiri sendiri. COntohnya, artikel dan komentar
+- `<footer>`: Tag ini digunakan untuk mendefinisikan bagian footer dari halaman atau bagian dari konten. Kita biasanya akan menempatkan informasi kontak dan hak cipta pada footer
+- `<canvas>`: Tag ini digunakan untuk membuat grafik, animasi, atau gambar yang dapat diolah dengan JavaScript
+- `<aside>`: Tag ini digunakan untuk mengelompokkan konten sampingan yang dapat berdisi sendiri, seperti sidebar dengan widget atau iklan
+- `<video>` dan `<audio>`: Tag ini digunakan untuk menanamkan dan mengendalikan file video dan audio di halaman web kita
+- `<figure> `dan `<figcaption>`: Tag ini digunakan bersama-sama untuk menambahkan gambar atau media lainnya berdengan dengan deskripsi. Ini membantu kita dalam merinci konten visual
+- `<input type='date/time/color'>`: Tag ini digunakan untuk memasukkan data tanggal, waktu, atau warna dalam formulir
+- `<iframe>`: Tag ini digunakan untuk menanamkan konten dari sumber eksternal, seperti video Youtube
+- `<progress>` dan `<meter>`: Tag ini digunakan untuk menampilkan informasi mengenai kemajuan, seperti status pengiriman file
+- `<datalist>`: Tag ini digunakan untuk membuat daftar opsi yang akan muncul saat user mulai mengetik di dalam input
+- `<details>` dan `<summary>`: Tag ini digunakan untuk membuat konten yang dapat dijatuhkan atau diperluas, contohnya daftar isian
 
 3. Jelaskan perbedaan antara margin dan padding.
    Margin dan padding digunakan untuk mengatur tata letak dan ruang antara elemen-elemen HTML di halaman web. Berikut adalah perbedaan antara margin dan padding
