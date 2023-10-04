@@ -15,11 +15,13 @@
         width: 80%;
         margin: 0 auto; /* Tengahkan elemen .container */
         padding: 20px; /* Add padding for spacing */
+        align-items: center;
       }
 
       .form {
         padding: 20px; /* Add padding for spacing */
         width: 100%;
+        align-items: center;
       }
 
       /* Style the table */
@@ -31,12 +33,17 @@
       }
 
       /* Style table rows and cells */
-      table tr {
+      .table tr {
         background-color: #6ba1fdfe;
       }
 
-      table td {
+      .table th {
+        background-color: #6ba1fdfe;
+      }
+
+      .table td {
         padding: 6px; /* Add padding for spacing */
+        background-color: #6ba1fdfe;
       }
 
       /* Style the submit button */
@@ -45,6 +52,7 @@
         border: 2px solid black;
         cursor: pointer;
         font-size: 16px;
+        width: 100%;
         color: white;
       }
 
@@ -54,7 +62,6 @@
         background-color: #add8e6;
       }
     </style>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
   </head>
   <body>
     <div class="container">
@@ -62,7 +69,7 @@
 
       <form method="POST" class="form">
         {% csrf_token %}
-        <table class="form">
+        <table class="table">
           {{ form.as_table }}
           <tr>
             <td></td>
