@@ -1,32 +1,143 @@
 {% extends 'base.html' %} {% block content %}
-<h1 style="text-align: center">Hana Grosir</h1>
-
-<h2>Welcome!</h2>
-<p>{{name}}</p>
-<h3>Class:</h3>
-<p>{{class}}</p>
 
 <!DOCTYPE html>
 <html style="background-color: #add8e6">
   <head>
     <title>Tabel Produk</title>
     <style>
+      h1 {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      h2 {
+        margin-left: 20px;
+      }
+
+      h3 {
+        margin-left: 20px;
+      }
+
+      p {
+        margin-left: 20px;
+      }
       #container {
-        background-color: #ffb9ee;
+        background-color: #6ba1fdfe;
+        align-items: center;
+      }
+
+      table {
+        background-color: #6ba1fdfe;
+        border-collapse: collapse;
+        width: 95%;
+        margin-left: 30px;
+        margin-right: 5px;
+      }
+
+      th,
+      td {
+        border: 2px solid black;
+        padding: 6px;
+        text-align: center;
+        color: black;
+      }
+
+      th {
+        background-color: #6ba1fdfe;
+        color: black;
+      }
+
+      td img {
+        max-width: 100px;
+      }
+
+      table tr:last-child {
+        background-color: #4bc0fffe;
+      }
+
+      .action-button {
+        background-color: #024ebf;
+        border: 2px solid black;
+        cursor: pointer;
+        font-size: 16px;
+        width: 70%;
+        height: 35px;
+        color: white;
+      }
+
+      .add-product-button {
+        background-color: #024ebf;
+        border: 2px solid black;
+        cursor: pointer;
+        font-size: 16px;
+        color: white;
+        margin-left: 20px;
+      }
+
+      .logout-button {
+        background-color: #024ebf;
+        border: 2px solid black;
+        cursor: pointer;
+        font-size: 16px;
+        color: white;
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      body {
+        background-color: #add8e6;
+        padding-top: 60px;
+        margin: 0;
+      }
+
+      h5 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+
+      span {
+        color: white;
+        font-size: 18px;
+        font-style: oblique;
+        font-weight: bold;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #024ebf;
+        padding: 25px; /* Tingkatkan padding untuk ukuran yang lebih besar */
+        text-align: right;
+        z-index: 1000;
+        border-radius: 10px; /* Tambahkan border-radius untuk pojok yang tidak tajam */
+        box-shadow: 10px 5px 25px rgba(12, 69, 255, 0.742); /* Tambahkan bayangan (shadow) untuk tampilan lebih menarik */
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: bold;
+        font-size: 18px;
       }
     </style>
   </head>
   <body>
-    <table
-      border="4"
-      ;
-      style="background-color: #ffb9ee; border-collapse: collapse"
-      ;
-      cellspacing="10"
-      ;
-      cellpadding="10"
-    >
-      <tr style="border: 2px solid black">
+    <div class="navbar">
+      <span>Welcome, {{name}}</span>
+      <a href="{% url 'main:create_product' %}">Add Product</a>
+      <a href="{% url 'main:logout' %}">Logout</a>
+    </div>
+    <h1 style="text-align: center">Hana Grosir</h1>
+
+    <h2>Welcome!</h2>
+    <p>{{name}}</p>
+    <h3>Class:</h3>
+    <p>{{class}}</p>
+    <table border="4" cellspacing="10" cellpadding="10">
+      <tr>
         <th>Nama produk</th>
         <th>Gambar</th>
         <th>Harga Satuan</th>
@@ -36,6 +147,7 @@
         <th>Menambah Jumlah Produk</th>
         <th>Mengurangi Jumlah Produk</th>
         <th>Menghapus Produk</th>
+        <th>Edit Produk</th>
       </tr>
       {% for product in products %}
       <tr>
@@ -50,71 +162,43 @@
             {% csrf_token %}
             <input type="hidden" name="id_item" value="{{ product.id }}" />
             <input type="hidden" name="action" value="increase" />
-            <button type="submit" style="
-            background-color: #46adf2;
-            border: 2px solid black;
-            cursor: pointer;
-            font-size: 14px;
-          ">Tambah</button>
+            <button type="submit" class="action-button">Tambah</button>
           </form>
         </td>
         <td align="center">
           <form method="post" action="{% url 'main:show_main' %}">
-              {% csrf_token %}
-              <input type="hidden" name="id_item" value="{{ product.id }}" />
-              <input type="hidden" name="action" value="decrease" />
-              <button type="submit" style="
-              background-color: #46adf2;
-              border: 2px solid black;
-              cursor: pointer;
-              font-size: 14px;
-            ">Kurang</button>
+            {% csrf_token %}
+            <input type="hidden" name="id_item" value="{{ product.id }}" />
+            <input type="hidden" name="action" value="decrease" />
+            <button type="submit" class="action-button">Kurang</button>
           </form>
         </td>
         <td align="center">
           <form method="post" action="{% url 'main:show_main' %}">
-              {% csrf_token %}
-              <input type="hidden" name="id_item" value="{{ product.id }}" />
-              <input type="hidden" name="action" value="delete" />
-              <button type="submit" style="
-              background-color: #46adf2;
-              border: 2px solid black;
-              cursor: pointer;
-              font-size: 14px;
-            ">Hapus</button>
+            {% csrf_token %}
+            <input type="hidden" name="id_item" value="{{ product.id }}" />
+            <input type="hidden" name="action" value="delete" />
+            <button type="submit" class="action-button">Hapus</button>
           </form>
-          </tr>
         </td>
+        <td>
+          <a href="{% url 'main:edit_product' product.pk %}">
+            <button class="action-button">Edit</button>
+          </a>
+        </td>
+      </tr>
       {% endfor %}
     </table>
     <br />
 
-    <a href="{% url 'main:create_product' %}">
-      <button
-        style="
-          background-color: #f1895d;
-          border: 2px solid black;
-          cursor: pointer;
-          font-size: 16px;
-        "
-      >
-        Add New Product
-      </button>
-    </a>
+    <!-- <a href="{% url 'main:create_product' %}">
+      <button class="add-product-button">Add New Product</button>
+    </a> -->
 
     <h5>Sesi terakhir login: {{ last_login }}</h5>
-    <a href="{% url 'main:logout' %}">
-      <button
-        style="
-          background-color: #f1895d;
-          border: 2px solid black;
-          cursor: pointer;
-          font-size: 16px;
-        "
-      >
-        Logout
-      </button>
-    </a>
+    <!-- <a href="{% url 'main:logout' %}">
+      <button class="logout-button">Logout</button>
+    </a> -->
   </body>
 </html>
 {% endblock content %}

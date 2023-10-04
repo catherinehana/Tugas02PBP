@@ -308,3 +308,100 @@ Perbedaan:
   Pola ini sering digunakan untuk mengembangkan aplikasi berbasis data. Pola ini mengenalkan ViewModel sebagai lapisan tambahan yang akan memisahkan tampilan dan logika dari bagian model. ViewModel mengelola tampilan secara terpusat sehingga bisa ada transformasi data sebelum ditampilkan di bagian view. Hasilnya, pengelolaan tampilan dalam menjadi lebih fleksibel. Hal inilah yang membuat pola ini sering digunakan di dalam aplikasi web modern dan berbasis mobile
 
 ========================================= Selesai Tugas PBP 2 ===========================================
+
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+   Elemen selector digunakan untuk menargetkan elemen-elemen HTML tertentu dalam halaman web kita. Berikut adalah penjelasan tentang jenis-jenis element selector:
+
+   - Selector Elemen(Elemen Selector),
+
+     - Manfaat: Selector elemen digunakan untuk mengedit tampilan semua elemen dengan jenis yang sama. Ini akan berguna ketika kita ingin mengaplikasikan gaya umum ke elemen-elemen tersebut. Contoh selector elemen sederhana adalah 'p' atau 'h1'
+     - Waktu yang tepat: Kita bisa mengggunakan selector elemen ketika kita ingin mengedit tampilan semua elemen dengan jenis yang sama, misalnya kita ingin mengubah ukuran teks pada semua paragraf dalam halaman kita
+
+   - Selector Kelas (Class Selector),
+
+     - Manfaat: Selector kelas memungkinkan kita untuk mengedit tampilan elemen-elemen yang memiliki atribut 'class' yang sama. DI sini, kita dapat mengaplikasikan gaya khusus pada kelompok atau kelas tertentu
+     - Waktu yang tepat: Kita dapat menggunakan selector class ketika kita ingin mengedit tampilan elemen-elemen yang memiliki karakteristik atau fungsi yang sama dengan halaman kita. Contohnya, kita ingin mengedit tampilan tombol.
+
+   - Selector ID(ID Selector),
+
+     - Manfaat: Selector ID digunakan untuk mengedit tampilan elemen ang memiliki atribut id unik. Ini adalah cara yang sangat spesifik untuk mengedit tampilan dan mengidentifikasi elemen tertentu
+     - Waktu yang tepat: Kita dapat menggunakan selector ID saat kita perlu mengedit tampilan elemen dengan atribut id yang unik di halaman kita, seperti header, container, dll
+
+   - Selector Universal ('\*' Selector),
+     - Manfaat: Selector universal memungkinkan kita untuk mengedit tampilan semua elemen dalam halaman. Ini jarang digunakan karena akan memengaruhi semua elemen dalam halaman web, yang mungkin tidak selalu diinginkan
+     - Waktu yang tepat: Kita perlu menggunakan selector universal dengan hati- hati atau bahkan menghibdari penggunaan selector universal, kecuali kita benar-benar ingin menerapkan gaya ke semua elemen dalam halaman.
+
+2. Jelaskan HTML5 Tag yang kamu ketahui.
+   HTML5 (Hypertext Markup Language versi 5) adalah versi terbaru dari standar HTML. HTML5 digunakan untuk membangun dan merancang halaman web. Ada banyak tag baru di HTML5 yang membantu pengembang web dalam membuat konten web yang lebih semantik dan kaya akan fitur. Berikut adalah beberapa tag HTMML5 yang saya ketahui:
+
+- <header>: Tag ini digunakan untk mendefinisikan bagian atas(header) dari halam atau bagian dari konten. Ini biasanya kita gunakan untuk menempatkan logo, judul halaman, dll
+- <nav>: Tag ini digunakan untuk mengelompokkan elemen-elemen yang berfungsi sebagai menu navigasi, seperti menu utama dan menu samping
+- <main>: Tag ini digunakan untuk mengelompokkan konten utama dari halaman web. Kita biasanya hanya menggunakan satu elemen <main> dalam satu halaman. Ini membantu aksesibilitas
+- <section>: Tag ini digunakan untuk mengelompokkan konten yang memilik makna atau topik serupa. Ini dapat membantu kita dalam memberikan struktur yang lebih baik pada halaman web
+- <article>: Tag ini digunakan untuk mengelompokkan konten yang merupakan bagian independen yang dapat berdiri sendiri. COntohnya, artikel dan komentar
+- <footer>: Tag ini digunakan untuk mendefinisikan bagian footer dari halaman atau bagian dari konten. Kita biasanya akan menempatkan informasi kontak dan hak cipta pada footer
+- <canvas>: Tag ini digunakan untuk membuat grafik, animasi, atau gambar yang dapat diolah dengan JavaScript
+- <aside>: Tag ini digunakan untuk mengelompokkan konten sampingan yang dapat berdisi sendiri, seperti sidebar dengan widget atau iklan
+- <video> dan <audio>: Tag ini digunakan untuk menanamkan dan mengendalikan file video dan audio di halaman web kita
+- <figure> dan <figcaption>: Tag ini digunakan bersama-sama untuk menambahkan gambar atau media lainnya berdengan dengan deskripsi. Ini membantu kita dalam merinci konten visual
+- <input type='date/time/color'>: Tag ini digunakan untuk memasukkan data tanggal, waktu, atau warna dalam formulir
+- <iframe>: Tag ini digunakan untuk menanamkan konten dari sumber eksternal, seperti video Youtube
+- <progress> dan <meter>: Tag ini digunakan untuk menampilkan informasi mengenai kemajuan, seperti status pengiriman file
+- <datalist>: Tag ini digunakan untuk membuat daftar opsi yang akan muncul saat user mulai mengetik di dalam input
+- <details> dan <summary>: Tag ini digunakan untuk membuat konten yang dapat dijatuhkan atau diperluas, contohnya daftar isian
+
+3. Jelaskan perbedaan antara margin dan padding.
+   Margin dan padding digunakan untuk mengatur tata letak dan ruang antara elemen-elemen HTML di halaman web. Berikut adalah perbedaan antara margin dan padding
+
+- Definisi,
+
+  - Margin: Margin adalah jarak antara elemen dan elemen-elemen di sekitarnya di luar batas elemen tersebut
+  - Padding: Padding adalah jarak antara batas elemen dan kontennya di dalam elemen tersebut
+
+- Pengaruhnya terhadap elemen sendiri,
+
+  - Margin: Margin memengaruhi seberapa jauh elemen tersebut dari elemen-elemen lain dari sekitarnya. Margin tidak memengaruhi tampilan atau tata letak elemen itu sendiri.
+  - Padding: Padding memengaruhi tampilan elemen itu sendiri dengan menambahkan ruang di antara batas elemen dan kontennya
+
+- Ruangan,
+  - Margin: Margin memberikan ruang di luar elemen sehingga ini akan memengaruhi jarak antara elemen dan elemen-elemen lain di sekitarnya
+  - Padding: Padding memberikan ruang di dalam elemen, ini memengaruhi jarak antara konten dan batas elemen
+
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+   Tailwind dan Bootstrap adalah dua framework CSS yang populer digunakan dalam pengembangan web. Berikut adalah perbedaan antara kedua framework CSS tersebut:
+
+- Filosofi Desain,
+
+  - Bootstrap: Bootstrap memiliki desain yang lebih baku dan sudah siap pakai. Kita bisa langsung mendapatkan komponen yang telah dirancang dengan baik yang memiliki gaya visual yang konsisten. Bootstrap menyediakan tema default yang dapat digunakan secara langsung
+  - Tailwind: Taiwind lebih fleksibel dan berfokus pada 'utility first' CSS. Ini berarti kita perlu membangun desain kita sendiri dengna menggabungkan kelas-kelas utilitas CSS untuk mengatur tampilan elemen. Tailwind memberikan kita kendali lebih besar atas desain kita. Kita perlu merancang komponen kita sendiri
+
+- Kustomisasi,
+
+  - Bootstrap: Bootstrap memiliki opsi kustomisasi yang terbatas. Kita dapat menyesuaikan beberapa aspek tampilan dengan mengganti variabel SAss atau menggunakan alat kustomisasi online dari mereka sendiri
+  - Taiwind: Tailwind sangat mudah disesuaikan. Kita dapat membuat tampilan yang benar-benar unik dengan menentukan kelas-kelas utilitas yang kita inginkan. Kita juga dapat menyesuaikan konfigurasi Tailwind secara detail
+
+- Ukuran,
+
+  - Bootstrap: Bootstrap memiliki ukuran yang lebih besar karena Bootstrap mengandung banyak komponen bawaan dan gaya yang sudah ada
+  - Tailwing: Tailwind memiliki ukuran yang lebih kecil karena Tailwind hanya menyediakan kelas-kelas utilitas yang kita gunakan
+
+- Kurva pembelajaran,
+
+  - Bootstrap: Bootstrap lebih mudah untuk digunakan oleh pemula karena kita tidak perlu menulis banyak kode CSS khusus. Kita dapat mulai dengan cepat menggunakan komponen=komponen Bootstrap yang sudah ada
+  - Tailwind: Untuk memahami Tailwind, kita memerlukan waktu yang lebih banyak. Biasanya Tailwind membutuhkan penulisan HTML yang lebih banyak untuk mengatur tampilan yang menggunakan kelas-kelas utilitas.
+
+- Kasus penggunaan,
+  - Bootstrap: Bootstrap sebaikan digunakan ketika kita membutuhkan desain yang siap pakai dengan gaya visual yang konsisten. Kita juga bisa memakai ini saat kita ingin membangun situs web dengan cepat tanpa banyak menuis kode yang perlu kustomisasi. Dan saat kita tidak memerlukan tingkat kustomisasi yang tinggi
+  - Tailwind: Tailwind sebaiknya digunakan ketika kita membutuhkan kendali penuk atas desain kita sendiri dan ingin membuat tampulan yang unik. Kita juga bisa menggunakan ini saat kita memerlukan fleksibilitas tinggi dalam mengatur tampilan elemen-elemen dan kita nyaman dengan pemrograman kelas utilitas CSS.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+- Menambahkan Bootstrap ke dalam aplikasi dengan cara memasukkan tag dan link CSS dan JS ke dalam file base.html di templates
+- Membuat fungsi edit produk di file views.py di main dengan parameter request dan id.
+- Mendesign tampilan edit produk dengan membuat dile edit_product.html dan menggunakan CSS dan HTML di satu file
+- import fungsi edit_product ke urls.py di main
+- Menambahkan path url edit produk ke urlpatterns
+- Menambahkan kode untuk menampilkan tombol edit produk di main.html
+- Mendesign main.html, registration.html, create_product.html, dan login.html dengan CSS dan HTML di dalam satu file
+- Design yang saya pakai ada card, table, dll.
+- Menambahkan fitur delete product seperti langkah-langkah menambahkan fitur edit , tetapi saya tidak membuat fungsi baru, saya hanya memasukkan kodenya ke dalam fungsi show_main

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Product</title>
+    <style>
+      /* Center the h1 element */
+      h1 {
+        text-align: center;
+      }
+
+      /* Style the form */
+      form {
+        width: 80%;
+        margin: 0 auto; /* Center the form horizontally */
+        padding: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #6ba1fdfe;
+      }
+
+      th,
+      td {
+        border: 2px solid black;
+        padding: 10px;
+        text-align: left;
+        background-color: #6ba1fdfe;
+      }
+
+      th {
+        background-color: #6ba1fdfe;
+        text-align: center;
+      }
+
+      /* Style the submit button */
+      input[type="submit"] {
+        background-color: #5d78f1;
+        border: 2px solid black;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        padding: 10px;
+        color: white;
+      }
+
+      /* Apply background color to the body */
+      body {
+        background-color: #add8e6;
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Edit Product</h1>
+
+    <form method="POST">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Edit Product" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+/* styles.css */
+
+/* Center the h1 element */
+h1 {
+  text-align: center;
+}
+
+/* Style the form */
+.form {
+  border: 2px solid black;
+  background-color: #ffb9;
+  padding: 20px; /* Add padding for spacing */
+}
+
+/* Style the table */
+.table {
+  width: 100%;
+  background-color: #ffb9;
+  border-collapse: collapse;
+}
+
+/* Style table rows and cells */
+table tr {
+  border: 2px solid black;
+}
+
+table td {
+  padding: 10px; /* Add padding for spacing */
+}
+
+/* Style the submit button */
+input[type="submit"] {
+  background-color: #f1895d;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Apply background color to the body */
+body {
+  background-color: #add8e6;
+}
+
+/* Style the form with the custom class */
+.custom-form {
+  background-color: #ffb9 !important;
+  /* Aturan gaya lainnya */
+}
