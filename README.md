@@ -98,12 +98,13 @@ Link Adaptable: https://hanagrosir.adaptable.app/main/
 - Menambahkan Bootstrap ke dalam aplikasi dengan cara memasukkan tag dan link CSS dan JS ke dalam file base.html di templates
 - Membuat fungsi edit produk di file views.py di main dengan parameter request dan id.
 - Mendesign tampilan edit produk dengan membuat dile edit_product.html dan menggunakan CSS dan HTML di satu file
-- import fungsi edit_product ke urls.py di main
+- Import fungsi edit_product ke urls.py di main
 - Menambahkan path url edit produk ke urlpatterns
 - Menambahkan kode untuk menampilkan tombol edit produk di main.html
 - Mendesign main.html, registration.html, create_product.html, dan login.html dengan CSS dan HTML di dalam satu file
-- Design yang saya pakai ada card, table, dll.
-- Menambahkan fitur delete product seperti langkah-langkah menambahkan fitur edit , tetapi saya tidak membuat fungsi baru, saya hanya memasukkan kodenya ke dalam fungsi show_main
+- Design yang saya pakai ada card, table, navbar, dll.
+- Di navbar akan ada tombol add product, logout, dan welcome nama user
+- Menambahkan fitur delete product, menambah product, dan mengurangi product seperti langkah-langkah menambahkan fitur edit , tetapi saya tidak membuat fungsi baru, saya hanya memasukkan kodenya ke dalam fungsi show_main
 
 ========================================= Selesai Tugas PBP 5 ==========================================
 
