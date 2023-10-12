@@ -65,6 +65,18 @@
         color: white;
       }
 
+      .ajax-button {
+        background-color: #024ebf;
+        border: 2px solid black;
+        cursor: pointer;
+        font-size: 16px;
+        width: 40%;
+        height: 30%;
+        color: white;
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+
       .add-product-button {
         background-color: #024ebf;
         border: 2px solid black;
@@ -138,57 +150,52 @@
     <h3>Class:</h3>
     <p>{{class}}</p>
     <table border="4" cellspacing="10" cellpadding="10">
-      <tr>
-        <th>Nama produk</th>
-        <th>Gambar</th>
-        <th>Harga Satuan</th>
-        <th>Keterangan</th>
-        <th>Berat</th>
-        <th>Jumlah</th>
-        <th>Menambah Jumlah Produk</th>
-        <th>Mengurangi Jumlah Produk</th>
-        <th>Menghapus Produk</th>
-        <th>Edit Produk</th>
-      </tr>
-      {% for product in products %}
-      <tr>
-        <td>{{product.name}}</td>
-        <td><img src="{{ product.picture }}" width="150" /></td>
-        <td>{{product.price}}</td>
-        <td>{{product.description}}</td>
-        <td>{{product.weight}}</td>
-        <td>{{product.ammount}}</td>
-        <td align="center">
-          <form method="post" action="{% url 'main:show_main' %}">
-            {% csrf_token %}
-            <input type="hidden" name="id_item" value="{{ product.id }}" />
-            <input type="hidden" name="action" value="increase" />
-            <button type="submit" class="action-button">Tambah</button>
-          </form>
-        </td>
-        <td align="center">
-          <form method="post" action="{% url 'main:show_main' %}">
-            {% csrf_token %}
-            <input type="hidden" name="id_item" value="{{ product.id }}" />
-            <input type="hidden" name="action" value="decrease" />
-            <button type="submit" class="action-button">Kurang</button>
-          </form>
-        </td>
-        <td align="center">
-          <form method="post" action="{% url 'main:show_main' %}">
-            {% csrf_token %}
-            <input type="hidden" name="id_item" value="{{ product.id }}" />
-            <input type="hidden" name="action" value="delete" />
-            <button type="submit" class="action-button">Hapus</button>
-          </form>
-        </td>
-        <td>
-          <a href="{% url 'main:edit_product' product.pk %}">
-            <button class="action-button">Edit</button>
-          </a>
-        </td>
-      </tr>
-      {% endfor %}
+      <table id="product_table"></table>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                          <label for="picture" class="col-form-label">Picture:</label>
+                          <input type="url" class="form-control" id="picture" name="picture"></input>
+                      </div>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="price" name="price"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="weight" class="col-form-label">Weight:</label>
+                          <input type="text" class="form-control" id="weight" name="weight"></input>
+                      </div>
+                      <div class="mb-3">
+                        <label for="ammount" class="col-form-label">Ammount:</label>
+                        <input type="number" class="form-control" id="ammount" name="ammount"></input>
+                    </div>
+                    
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="ajax-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
     </table>
     <br />
 
@@ -202,4 +209,92 @@
     </a> -->
   </body>
 </html>
+<script>
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+  async function getProducts() {
+    return fetch("{% url 'main:get_product_json' %}").then((res) => res.json());
+  }
+  async function refreshProducts() {
+    console.log('haloo');
+    document.getElementById("product_table").innerHTML = "";
+    const products = await getProducts();
+    console.log(products);
+    let htmlString = `<tr>
+        <th>Nama produk</th>
+        <th>Gambar</th>
+        <th>Harga Satuan</th>
+        <th>Keterangan</th>
+        <th>Berat</th>
+        <th>Jumlah</th>
+        <th>Menambah Jumlah Produk</th>
+        <th>Mengurangi Jumlah Produk</th>
+        <th>Menghapus Produk</th>
+        <th>Edit Produk</th>
+        </tr>`;
+    products.forEach((item) => {
+      htmlString += `\n<tr>
+            <td>${item.fields.name}</td>
+            <td> <img src="${item.fields.picture}" width="150" /> </td>
+            <td>${item.fields.price}</td>
+            <td>${item.fields.description}</td>
+            <td>${item.fields.weight}</td>
+            <td>${item.fields.ammount}</td>
+            <td align="center">
+              <a href="increase_product/${item.pk}">
+                <button class="action-button">Tambah</button>
+            </a>
+            </td>
+            <td align="center">
+              <a href="decrease_product/${item.pk}">
+                <button class="action-button">Kurang</button>
+            </a>
+            </td>
+            <td align="center">
+              <a href="delete_product/${item.pk}">
+                <button class="action-button">Hapus</button>
+            </a>
+            </td>
+            <td>
+                <a href="edit-product/${item.pk}">
+                    <button class="action-button">Edit</button>
+                </a>
+            </td>
+
+        </tr>`;
+    });
+
+    document.getElementById("product_table").innerHTML = htmlString;
+    
+  }
+
+  function addProduct() {
+    console.log('add');
+    const form = new FormData()
+    form.append('name', document.querySelector('#name').value)
+    form.append('picture', document.querySelector('#picture').value)
+    form.append('price', document.querySelector('#price').value)
+    form.append('description', document.querySelector('#description').value)
+    form.append('weight', document.querySelector('#weight').value)
+    form.append('ammount', document.querySelector('#ammount').value)
+
+    fetch("{% url 'main:add_product_ajax' %}", {
+      method: "POST",
+      headers: {
+        headers: {'X-CSRFToken': csrftoken},
+        mode: 'same-origin'
+      },
+      body: form
+    }).then(res => refreshProducts())
+    
+    document.getElementById("form").reset()
+    return false
+  }
+
+// ATAS FUNGSI
+
+
+  document.getElementById("button_add").onclick = addProduct
+  refreshProducts();
+</script>
 {% endblock content %}

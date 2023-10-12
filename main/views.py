@@ -14,36 +14,37 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
 @login_required(login_url='/login')
 def show_main(request):
     products = Item.objects.filter(user=request.user)
-    if request.method == 'POST':
-        id_item = request.POST.get('id_item')
-        action = request.POST.get('action')
+    # if request.method == 'POST':
+    #     id_item = request.POST.get('id_item')
+    #     action = request.POST.get('action')
 
-        if action == 'increase':
-            product = Item.objects.get(id=id_item)
-            product.ammount += 1
-            product.save()
-        elif action == 'decrease': 
-            product = Item.objects.get(id=id_item)
-            if product.ammount > 0:
-                product.ammount -= 1
-                product.save()
-        elif action == 'delete':
-            product = Item.objects.get(id=id_item)
-            product.delete()
-            return HttpResponseRedirect(reverse(('main:show_main')))
+        # if action == 'increase':
+        #     product = Item.objects.get(id=id_item)
+        #     product.ammount += 1
+        #     product.save()
+        # elif action == 'decrease': 
+        #     product = Item.objects.get(id=id_item)
+        #     if product.ammount > 0:
+        #         product.ammount -= 1
+        #         product.save()
+        # elif action == 'delete':
+        #     product = Item.objects.get(id=id_item)
+        #     product.delete()
+        #     return HttpResponseRedirect(reverse(('main:show_main')))
         
     context = {
         'name': request.user.username,
         'class': 'PBP B',
         'products': products,
         'last_login': request.COOKIES['last_login'],
+        
     }
 
     return render(request, "main.html", context)
@@ -109,6 +110,28 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+def get_product_json(request):
+    product_item = Item.objects.all()
+    return HttpResponse(serializers.serialize('json', product_item))
+
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        description = request.POST.get("description")
+        ammount = request.POST.get('ammount')
+        picture = request.POST.get('picture')
+        weight = request.POST.get('weight')
+        user = request.user
+
+        new_product = Item(name=name, price=price, description=description, user=user, ammount=ammount, picture=picture, weight=weight)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+    else:
+        return HttpResponseNotFound()
+
 def edit_product(request, id):
     # Get product berdasarkan ID
     product = Item.objects.get(pk = id)
@@ -123,3 +146,22 @@ def edit_product(request, id):
 
     context = {'form': form}
     return render(request, "edit_product.html", context)
+
+def increase_product(request, id):
+    product = Item.objects.get(pk = id)
+    product.ammount += 1
+    product.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+def decrease_product(request, id):
+    product = Item.objects.get(pk = id)
+    if product.ammount > 0:
+        product.ammount -= 1
+        product.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+    
+
+def delete_product(request, id):
+    product = Item.objects.get(pk = id)
+    product.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
