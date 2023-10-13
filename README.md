@@ -6,6 +6,99 @@ Kelas : PBP B
 
 Link Adaptable: https://hanagrosir.adaptable.app/main/
 
+===================================== Tugas PBP 6 =======================================================
+
+1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+   Asynchronous programming dan synchronous programming adalah dua paradigma yang berbeda. PErbedaan kedua programming tersebut adalah:
+
+- Dari segi sistem
+
+  - Synchronous programming:
+    - Tugas atau operasi diekskusi satu per satu dalam urutan yang telah ditentukan. Ini bisa disebut sebagai sekuensial
+    - Ketika sebuah tugas dimulai, program akan terhenti dan mengunggu sampat tugas berikutnya selesai. Ini dapat mengakibatkan blokade dalam program (blocking)
+    - Urutan eksekusi lebih mudah untuk diprediksi
+  - Asynchronous programming:
+    - Tugas atau operasi dapat dimulai tanpa harus menunggu sampai mereka selesai. Ini disebut sebagai pararel atau non-blocking
+    - Dapat menjalankan beberapa tugas secara bersamaan sehingga meningkatkan efisiensi dalam penanganan tugas yang memakan wakt
+    - Ekseksi lebih fleksibel dan tidak terikat pada urutan tertentu
+
+- Dari segi responsivitas
+
+  - Synchronous programming: Programming ini cenderung kurang responsif karena operasi yang memakan waktu dapat menghentikan program dan menunda tanggapan terhadap input pengguna
+  - Asynchronous programming: Programming ini lebih responsif karena operasi yang memakan waktu dijalankan di latar belakang. Maka, program dapat tetap merespons input pengguna atau tugas lain tanpa hambatan
+
+- Dari segi kompleksitas
+  - Synchronous programming: Programming ini lebih sederhana dan mdah dimengerti karena tudag disksekusi dalam urutan yang jelas
+  - Asynchronous programming: Programming ini lebih komplkes karena kita perlu untuk mengelola urutan dan hubungan antara tugas yang berjalan secara asinkron. Biasanya digunakan konsep callback, promise, atau async/wait dalam programming ini.
+
+2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+
+   Paradigma event-driven programming (pemrograman beerbasis peristiwa) adalah pendekatan pemrograman di mana logika program merespons peristiwa atau tindakan pengguna secara asinkron. Artinya, program mendengarkan peristiwa yang terjadi, seperti peristiwa klik tombol, masukan pengguna, klik gambar, atau tindakan lainnya, dan program merespons peristiwa tersebut dengan menjalankan tindakan tertentu. Dalam konteks tugas ini, contoh penerapan paradigma pemrograman berbasis pesritiwa adalah:
+
+- Menambah produk dengan Ajax, Di sini kita memiliki tombol "Add Product by AJAX" yang digunakan untuk menambahkan produk baru ke daftar produk dengan menggunakan AJAX. Penerapannya adalah `<button type="button" class="ajax-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>` Lalu, kode Javascript yang menangani event-driving programming tersebut adalah `document.getElementById("button_add").onclick = addProduct;` Pada tombol ini, kita mendefinisikan event listener yang mendengarkan event klik (click event). Ketika tombol "Add Product by AJAX" ditekan oleh pengguna, fungsi "AddProduct" akan dieksekusi. Fungsi "AddProduct" pada contoh ini adalah sebuah contoh paradigma event-driven programming. Fungsi ini dipanggil dan dieksekusi sebagai respons terhadap peristiwa klik pada tombol. Dengan demikian, paradigma event-driven programmin memungkinkan aplikasi web kita untuk merespons peristiwa seperti klik tombol, masukan pengguna, atau tindakan lainnya, dan menjalankan tindakan tersebut sebagai respons terhadap peristiwa.
+
+3. Jelaskan penerapan asynchronous programming pada AJAX.
+
+Penerapan asynchronous programming adalah bagian kunci dari teknologi AJAX. Konsep asinkron pada AJAX memungkinkan aplikasi web untuk melakukan beberapa tindakan tanpa harus menunggu tindakan sebelumnya selesai. Ini meningkatkan responsivitas dan kinerja web. Berikut adalah penerapannya pada AJAX:
+
+- Permintaan HTTP Asinkron: Ketika menggunakan AJAX, kita dapat megirimkan permintaan HTTP ke server asinkron. Ini berarti browser tidak akan terblokir saat menunggu tanggapan server. Sebaliknya, browser dapat melanjutkan eksekusi kode Javascript alinnya sambil menunggu tanggapan dari server
+- Fungsi allback: Saat kita melakukan permintaan asinkronus dengan AJAX, kita biasanya memberikan fungsi callback yang akan dipanggil ketika permintaan selesai. Fungsi ini akan menangani data yang diterima dari permintaan selesai. Fungsi ini akan menangani data yang ditetrima dari server dan menentukan hal yang perlu dilakukan dengan data tersebut
+- Keuntungan kinerja: Asynchronous programming sangat berguna saat kit aperlu mengambil atau mengirim data ke server, tetapi kita tidak ingin menghalangi interaksi pengguna selama proses ini. Cntohnya, ketika pengguna mengisi formulir dan mengirimkannya. Kita dapat mengirim data ke server secara asinkronus dan tetap memungkinkan pengguna untuk berinteraksi dengan halaman
+- Penggunaan promises: Meskipun kita dapat menggunakan callback untuk menangani permintaan asinkronus, di dalan JAvaScript modern, Promises telah menjadi cara umum untuk mengelola tindakan asinkronus. Promisess memungkinkan kita untuk mengatasi permintaaan asinkronus dengan lebih terstruktur dan mengeola Kasus-kasus seperti penanganan kesalahan dengan lebih baik
+
+4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+
+Fetch API dan JQuery adalah dua teknologi yang digunakan untuk melakukan permintaan HTTP asinkronus dalam pengembangan web. INi adalah perbedaan antara kedua hal tersebut:
+
+- FETCH API
+
+  - Kelebihan
+    - FETCH API lebih modern: FETCH API adalah standar terbaru dalam JAvaScript dan disertakan dengan semua browser modern. Ini mendukung PROmises yang membuatnya lebih mudah untuk digunakan dalam kode asinkronus
+    - FETCH API lebih ringan: FETCH API tidak memiliki ketergantungan pada pustaka eksternal karena sudah menjadi bagian dari JavaScript.
+    - FETCH API lebih fleksibel: Kita dapat menggunakan FETCH API untuk mengambil berbagai jenis data, termasuk JSON, tek, blob, dan mengontrol permintaan dan respons dengan baik
+  - Kekurangan
+    - Perlu adanya penanganan error lebih manual
+    - TIdak memiliki metode seperti `$ajax()` dalan jQuery yang dapat digunakan untuk mempermudah pengiriman permintaan AJX
+
+- jQuery
+  - Kelebihan
+    - Kompatibiltas yang baik: jQuery telah ada dalam pengembangan web untuk waktu yang lama dan mendukung browser lama. Ini memastikan kompatibilitas yang baik di seluruh platform
+    - Mudah digunakan: jQuery memiliki metode AJAX dan bawaan yang sederhana, seperti `$.ajax()` yang membuatnya mudah digunakan bahkan untuk pemula
+    - Penanganan error yang lebih baik: jQuery secara otomatis menangani error dalam permintaan AJAX dan memiliki fungsi callback yang khusus untuk itu
+  - Kekurangan
+    - Ukuran: ketergantungan pada pustaka eksternal yang lebih besar (jQuery) yang bisa memengaruhi kinerja dan ukuran aplikasi web kita
+    - Kemudahan berlebihan: Untuk proyek-proyek besar, jQuery mungin memiliki lebih banyak fitu datipada yang diperlukan sehingga dapat memperlambat aplikasi
+
+Dari berbagai pertimbangan, menurut saya pilihan antara FETCH API dan jQuery tergantung pada kebutuhan proyek dan preferensi pengembang. Jika kita bekerja pada proyek modern dengan dukungan browser terbaru dan menginginkan kode yang leih bersih dan ringan, FETCH API adalah pilih yang baik. Tetapi, jika kita perlu mendukung browser lama atau lebih suka mengamdalkan pustaka yang sudah terbukti, maka kita mungkin akan lebih memilih jQuery. Namun, perlu diingat bahwa perkembangan FETCH API terus berlanjut dan dengan adopsi yang semakin meluas, akan ada lebih banyak sumber daya dan dukungan yang tersedia. Selain itu, seiring berakhirnya dukungan untuk browser lama, kebutuhan untuk bergantung pada jQUery juga semakin berkurang. Oleh karena itu, untuk proyek-proyek baru sebaiknya kita mempertimbangkan untuk menggunakan FETCH API untuk kode yang lebih modern dan efisien
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+- Membuat fungsi pada wiews dengan nama get_product_json yang menerima parameter request untuk mengembalikan data JSON. Fungsi ini akan digunakan untuk menampilkan data produk pada HTML dengan menggunakan fetch
+- Membuat fungsi pada views.py dengan nama add_product_ajax yang menerima parameter request untuk menambahkan produk abru ke basis data dengan ajax
+- Menambahkan dekorator `@csrf_exempt` di atas fungsi add_product_ajax
+- Kode `name = request.POST.get("name")` berfungsi untuk mengambil value name pada request
+- Menambahkan routing untuk fungsi get_product_josn dan \_add_product_ajax di urls.py di main dengan menambahkan path url kedua fungsi di dalam urlpatterns dan import di urls.py. Routing terdiri dari `path('get-product/', get_product_json, name='get_product_json'),` dan `path('create-product-ajax/', add_product_ajax, name='add_product_ajax')`
+- Menampilkan data product dengan fetch() API dengan cara menambahkan kode untuk struktur tabel dan block script berisi fungsi getProducts() dan refreshProducs() ke dalam main.html di templates pada main. Fungsi refreasProduct() yang bertanggunag jawab dalam AJAX GET. DI fungsi refreshProduct(), saya juga mengubah kode tabel saya menjadi card item yang dapat mendukung AJAX GET
+- Membuat modal sebagai form untuk menambahkan prduk dengan mengimplementasikan modal (Bootstrap) di main.html di bagian bawah struktur tabel produk
+- Menambahkan button yang berfungsi untuk menampilkan modalnya di bawah kode Bootstrap
+- Menambahkan data product dengan ajax dengan cara membuat fungsi baru pada block script dengna nama addProduct() dan menambahkan fungsi onclick pada button "Add Product" pada modal untuk menjalankan fungsi addProduct() di main.html
+- Menambahkan `django-environ` di baris terakhir berkas requirements.txt
+- Menjalanan perintah `pip install -r requirements.txt` untuk menginstal perubahan pada berkas requirements.txt.
+- Membuat berkas baru bernama `Procfile` pada root folder dan mengesi dengan django migrate dan nama Hana_Grosir
+- Membuat folder baru bernama .github pada root folder dan membuat folder baru dengan nama workflows di folder .github
+- Membuat file bernama pbp-deploy.yml di dalam folder workflows dan mengisinya dengan kode untuk deploy
+- Membuat file baru .dockerignore pada root folder dan diisi dengan kode perlengkapan deployment
+- Membuat file bernama Dockerfile pada root folder yang berisikan perintah untuk deploy
+- Menambhakan kode import environ dan import os setelah baris kode from pathlib import Path pada setinggs.py
+- Menambahkan kode env = environ.Env() setelah baris kode BASE_DIR
+- Menambahkan kode Production di bawah SECRET_KEY
+- Menambahkan kode untuk set database settings secara otomatis menggunakan DATABSE_URL di bawah DARABASES
+- Menambahkan kode STATIC_ROOT di bawah STATIC URL
+- Melakukan perintah collectstatic secara otomatis di file Dockerfile ini akan digunakan juga untuk melakukan deployment Paas
+- Membuat new repository secret yang berisii DOKKU_SERVER_IP, DOKKU_APP_NAME, dan DOKKU_SSH_PRIVATE_KEY
+
+========================================= Selesai Tugas PBP 6 ===========================================
+
 ========================================== Tugas PBP 5 ==================================================
 
 1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.

@@ -1,6 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-
-<!DOCTYPE html>
 <html style="background-color: #add8e6">
   <head>
     <title>Tabel Produk</title>
@@ -32,6 +30,7 @@
         width: 95%;
         margin-left: 32px;
         margin-right: 5px;
+        align-items: center;
       }
 
       th,
@@ -51,7 +50,7 @@
         max-width: 100px;
       }
 
-      table tr:last-child {
+      .product-card:last-child {
         background-color: #4bc0fffe;
       }
 
@@ -64,6 +63,8 @@
         height: 35px;
         color: white;
         text-decoration: none;
+        border-radius: 10px; 
+        text-align: center;
       }
 
       .ajax-button {
@@ -141,15 +142,16 @@
         display: inline-block;
         width: 350px; /* Mengatur lebar kartu agar tiga kartu dapat masuk dalam satu baris */
         height: 400px;
-        margin: 1%; /* Menambahkan margin antara kartu */
+        margin: 2%; /* Menambahkan margin antara kartu */
         border: 1px solid #ddd;
         padding: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         text-align: center;
         background-color: #fff;
         vertical-align: top;
-        margin-bottom: 10px;
-        
+        /* margin-bottom: 30px; */
+        border-radius: 10px; /* Mengatur sudut kartu menjadi melengkung */
+    
       }
 
       .product-card .product-image img {
@@ -175,11 +177,13 @@
         justify-content: space-between;
         margin-top: 10px;
       }
+
       .card {
         width: 30%; /* 30% lebar layar */
         margin: 1%; /* Ruang antara kartu */
         display: inline-block; /* Membuat kartu tampil secara horizontal */
         align-items: center;
+        
       }
 
     </style>
@@ -236,7 +240,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger close-button" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
                 </div>
             </div>
@@ -263,35 +267,35 @@
     return fetch("{% url 'main:get_product_json' %}").then((res) => res.json());
   }
   async function refreshProducts() {
-  const products = await getProducts();
-  console.log(products);
+    const products = await getProducts();
+    console.log(products);
 
-  let htmlString = '';
+    let htmlString = '';
 
-  products.forEach((item) => {
-    htmlString += `
-      <div class="product-card">
-        <div class="product-image">
-          <img src="${item.fields.picture}" alt="${item.fields.name}">
-        </div>
-        <div class="product-details">
-          <h3>${item.fields.name}</h3>
-          <p>${item.fields.description}</p>
-          <p>Price: ${item.fields.price}</p>
-          <p>Weight: ${item.fields.weight}</p>
-          <p>Amount: ${item.fields.ammount}</p>
-        </div>
-        <div class="product-actions">
-          <a href="increase_product/${item.pk}" class="action-button">Increase</a>
-          <a href="decrease_product/${item.pk}" class="action-button">Decrease</a>
-          <a href="delete_product/${item.pk}" class="action-button">Delete</a>
-          <a href="edit-product/${item.pk}" class="action-button">Edit</a>
-        </div>
-      </div>`;
-  });
+    products.forEach((item) => {
+      htmlString += `
+        <div class="product-card">
+          <div class="product-image">
+            <img src="${item.fields.picture}" alt="${item.fields.name}">
+          </div>
+          <div class="product-details">
+            <h3>${item.fields.name}</h3>
+            <p>${item.fields.description}</p>
+            <p>Price: ${item.fields.price}</p>
+            <p>Weight: ${item.fields.weight}</p>
+            <p>Amount: ${item.fields.ammount}</p>
+          </div>
+          <div class="product-actions">
+            <a href="increase_product/${item.pk}" class="action-button">Increase</a>
+            <a href="decrease_product/${item.pk}" class="action-button">Decrease</a>
+            <button onclick="deleteProduct(${item.pk})" type="submit" class="btn btn-danger delete-button">Delete</button>
+            <a href="edit-product/${item.pk}" class="action-button">Edit</a>
+          </div>
+        </div>`;
+    });
 
-  document.getElementById("product_table").innerHTML = htmlString;
-}
+    document.getElementById("product_table").innerHTML = htmlString;
+  }
 
 
 
@@ -318,10 +322,28 @@
     return false
   }
 
+  function deleteProduct(pk){
+    console.log('hehehe');
+    fetch(`/delete_product/${pk}`, {
+      method: 'DELETE',
+      headers: {
+        'X-CSRFToken': csrftoken,
+        'mode': 'same-origin'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Product deleted:', data);
+      refreshProducts();  // Perbarui produk setelah menghapus
+      window.location.reload();
+    })
+    .catch(error => console.error('Error:', error))
+  }
+
+
 // ATAS FUNGSI
-
-
   document.getElementById("button_add").onclick = addProduct
   refreshProducts();
 </script>
+
 {% endblock content %}

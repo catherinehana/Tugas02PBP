@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
+from django.http import JsonResponse
 from main.models import Item
 from main.forms import ProductForm
 from django.urls import reverse
@@ -111,7 +112,7 @@ def logout_user(request):
     return response
 
 def get_product_json(request):
-    product_item = Item.objects.all()
+    product_item = Item.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize('json', product_item))
 
 @csrf_exempt
@@ -160,8 +161,11 @@ def decrease_product(request, id):
         product.save()
     return HttpResponseRedirect(reverse('main:show_main'))
     
-
 def delete_product(request, id):
-    product = Item.objects.get(pk = id)
-    product.delete()
-    return HttpResponseRedirect(reverse('main:show_main'))
+    if request.method == 'DELETE':
+        print('hehe')
+        Item.objects.filter(pk=id).delete()
+
+        return JsonResponse({'status': 'success'})
+
+
