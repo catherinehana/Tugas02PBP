@@ -169,3 +169,6 @@ def delete_product(request, id):
         return JsonResponse({'status': 'success'})
 
 
+
+
+
