@@ -14,8 +14,6 @@ from pathlib import Path
 import os
 import environ 
 
-CSRF_TRUSTED_ORIGINS = ['https://catherine-hana-tugas.pbp.cs.ui.ac.id']
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'authentication',
-
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'Hana_Grosir.urls'

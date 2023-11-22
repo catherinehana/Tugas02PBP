@@ -41,7 +41,7 @@ def show_main(request):
         #     return HttpResponseRedirect(reverse(('main:show_main')))
         
     context = {
-        'name': request.user.username,
+        'name': request.user,
         'class': 'PBP B',
         'products': products,
         'last_login': request.COOKIES['last_login'],
@@ -90,20 +90,20 @@ def register(request):
     context = {'form':form}
     return render(request, 'register.html', context)
 
-def login_user(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            response = HttpResponseRedirect(reverse("main:show_main")) 
-            response.set_cookie('last_login', str(datetime.datetime.now()))
-            return response
-        else:
-            messages.info(request, 'Sorry, incorrect username or password. Please try again.')
-    context = {}
-    return render(request, 'login.html', context)
+# def login_user(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             response = HttpResponseRedirect(reverse("main:show_main")) 
+#             response.set_cookie('last_login', str(datetime.datetime.now()))
+#             return response
+#         else:
+#             messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+#     context = {}
+#     return render(request, 'login.html', context)
 
 def logout_user(request):
     logout(request)
@@ -168,7 +168,25 @@ def delete_product(request, id):
 
         return JsonResponse({'status': 'success'})
 
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
 
+        new_product = Product.objects.create(
+            user = request.user,
+            name = data["name"],
+            ammount = int(data["ammount"]),
+            price = int(data["price"]),
+            description = data["description"]
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
 
 
 
