@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout as auth_logout
 
 @csrf_exempt
 def login(request):
@@ -38,7 +39,7 @@ def logout(request):
     try:
         auth_logout(request)
         return JsonResponse({
-            "username": user.username,
+            "username": username,
             "status": True,
             "message": "Logout berhasil!"
         }, status=200)

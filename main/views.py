@@ -16,6 +16,7 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 
 # Create your views here.
@@ -174,7 +175,7 @@ def create_product_flutter(request):
         
         data = json.loads(request.body)
 
-        new_product = Product.objects.create(
+        new_product = Item.objects.create(
             user = request.user,
             name = data["name"],
             ammount = int(data["ammount"]),
